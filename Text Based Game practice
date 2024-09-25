@@ -1,0 +1,58 @@
+#include<iostream> 
+using namespace std;
+int main() {
+
+	int room;
+	char answer;
+	cout << "enter a room number" << endl;
+	cin >> room;
+
+	while (true) {
+
+	
+		switch (room) {
+		case 1:
+			cout << "you're in room 1, the kitchen. you can go (e)ast" << endl;
+			cin >> answer;
+			if (answer == 'e')
+				room = 2;
+				break;
+		case 2:
+			cout << "you're in room 2, the living room. you can go (w)est (e)ast, and (n)orth." << endl;
+			cin >> answer;
+			if (answer == 'w')
+				room = 3;
+			else if (answer == 'n')
+				room = 4;
+			else if (answer == 'e')
+				room = 1;
+			break;
+		case 3:
+			cout << "you're in room 3, the bedroom. you can go (e)ast" << endl;
+			cin >> answer;
+			if (answer == 'e')
+				room == 2;
+			break;
+
+		case 4:
+			cout << "you're in room 4, the bathroom. you can go (s)outh and (n)orth." << endl;
+			cin >> answer;
+			if (answer == 's')
+				room = 2;
+			else if (answer == 'n')
+				room = 5;
+			break;
+
+		case 5:
+			cout << "you're now in room 5, the secret dungeon. you can go (s)outh" << endl;
+			cin >> answer;
+			if (answer == 's')
+				room = 4;
+			break;
+
+		
+
+		}
+	}
+
+}
