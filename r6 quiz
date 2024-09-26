@@ -1,0 +1,146 @@
+#include<iostream>
+using namespace std;
+int main() {
+	////////attacker/////////////////////
+	int ying = 0;
+	int twitch = 0;
+	int dokkaebi = 0;
+	int ash = 0;
+	int nokk = 0;
+	////////defenders/////////////////////
+	int doc = 0;
+	int smoke = 0;
+	int mute = 0;
+	int jager = 0;
+	int melusi = 0;
+	char intro = 0;
+
+
+
+
+	cout << "This is a quiz that will show you what kind of Rainbow Six Siege Operator you are based on what questions you answer :)" << endl;
+	cout << "Are you ready to continue? (y)es or (n)o" << endl;
+	cin >> intro;
+	if (intro == 'y')
+		cout << "Great! Let's get started!" << endl;
+	else if (intro == 'n')
+		cout << "Leave then please >:(" << endl;
+	else
+		cout << "an answer would be appreciated" << endl;
+	string answer;
+	cout << "Would you consider yourself a team player? Yes or No?" << endl;
+	cin >> answer;
+	if (answer == "yes") {
+		doc += 2;
+		ying += 1;
+		twitch += 1;
+		dokkaebi += 1;
+		mute += 2;
+		jager += 1;
+		melusi += 1;
+		smoke += 1;
+	}
+	else if (answer == "no") {
+		ash += 2;
+		nokk += 2;
+	}
+	cout << "Do you like playing siege? yes or no?" << endl;
+	cin >> answer;
+	if (answer == "yes") {
+		twitch += 1;
+		ash += 1;
+		mute += 1;
+		jager += 1;
+		smoke += 1;
+		doc += 1;
+		dokkaebi += 1;
+	}
+	else if (answer == "no") {
+		nokk += 1;
+		melusi += 1;
+		ying += 1;
+
+	}
+	cout << "What color would you prefer? green, blue, orange, or black?" << endl;
+	cin >> answer;
+	if (answer == "green") {
+		jager += 1;
+		nokk += 1;
+		melusi += 1;
+
+	}
+	else if (answer == "blue") {
+		doc += 1;
+		twitch += 1;
+
+	}
+	else if (answer == "orange") {
+		ying += 1;
+		ash += 1;
+	}
+	else if (answer == "black") {
+		smoke += 1;
+		mute += 1;
+		dokkaebi += 1;
+	}
+
+	cout << "How would you describe yourself? enthusiastic, uninterested, prideful, or lovely?" << endl;
+	cin >> answer;
+	if (answer == "enthusiastic") {
+		dokkaebi += 2;
+
+	}
+	else if (answer == "uninterested") {
+		smoke += 1;
+		mute += 1;
+		nokk += 1;
+
+	}
+	else if (answer == "prideful") {
+		ash += 1;
+		ying += 1;
+		doc += 1;
+		twitch += 1;
+
+	}
+	else if (answer == "lovely") {
+		jager += 1;
+		melusi += 1;
+
+	}
+
+	if (ying <= twitch && ying <= dokkaebi && ying <= ash && ying <= nokk && ying <= doc && ying <= smoke && ying <= mute && ying <= jager && ying <= melusi) {
+		cout << "You are ying" << endl;
+
+	}
+	else if (twitch <= dokkaebi && twitch <= ash && twitch <= nokk && twitch <= doc && twitch <= smoke && twitch <= mute && twitch <= jager && twitch <= melusi) {
+		cout << "You are twitch" << endl;
+
+	}
+	else if (dokkaebi <= ash && dokkaebi <= nokk && dokkaebi <= doc && dokkaebi <= smoke && dokkaebi <= mute && dokkaebi <= jager && dokkaebi <= melusi) {
+		cout << "You are dokkaebi" << endl;
+	}
+	else if (ash <= nokk && ash <= doc && ash <= smoke && ash <= mute && ash <= jager && ash <= melusi) {
+		cout << "You are ash" << endl;
+
+	}
+	else if (nokk <= doc && nokk <= smoke && nokk <= mute && nokk <= jager && nokk <= melusi) {
+		cout << "You are nokk" << endl;
+
+	}
+	else if (doc <= smoke && doc <= mute && doc <= jager && doc <= melusi) {
+		cout << "You are melusi" << endl;
+
+	}
+	else if (smoke <= mute && jager <= melusi) {
+		cout << "You are smoke" << endl;
+
+	}
+	else if (mute <= jager && mute <= melusi) {
+		cout << "You are mute" << endl;
+	}
+	else if (jager <= melusi) {
+		cout << "You are jager" << endl;
+	}
+	else
+		cout << "You are melusi" << endl;
