@@ -1,0 +1,33 @@
+void BattleSys() {
+	int MonsterHealth = 20;
+	char dummy;
+	int damage;
+
+	cout << endl << endl << "----------------------monster battle!-------------" << endl;
+	cout << "an ogre attacks!" << endl;
+	while (PlayerHealth > 0 && MonsterHealth > 0) {
+
+		//monster attack section
+		damage = rand() % 10; //0-9
+		cout << "the monster bites you for " << damage<< "dmg" << endl;
+		PlayerHealth -= 20;
+		cout << "press any key to continue" << endl;
+		cin >> dummy; //system.pause() is better
+
+		//player attack section
+		damage = rand() % 21 + 5; // 5-25
+		cout << "you hit the monster for " << damage << "dmg" << endl << endl << endl;
+		MonsterHealth -= damage;
+
+		//print values
+		if (PlayerHealth > 0)
+			cout << "your health: " << PlayerHealth << endl;
+		else
+			cout << "you died." << endl;
+		if (MonsterHealth > 0)
+			cout << "Monster Health: " << MonsterHealth << endl;
+		else cout << "Monster is defeated!" << endl;
+		cout << "Your health" << PlayerHealth << endl;
+		cout << "Monster health: " << MonsterHealth << endl;
+	}
+	cout << "--------------------------------------------------------------" << endl;
