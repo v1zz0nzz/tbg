@@ -1,0 +1,208 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int room;
+	char answer;
+	cout << "enter a room number" << endl;
+	cin >> room;
+
+	while (true) {
+
+
+		switch (room) {
+		case 1:
+			cout << "you're in area 1, the grassy fields. you can go (n)orth" << endl;
+			cin >> answer;
+			if (answer == 'n')	
+				room = 2;
+			break;
+		case 2:
+			cout << "you're in area 2, the orchard. you can go (n)orth and (s)outh." << endl;
+			cin >> answer;
+			if (answer == 's')
+				room = 1;
+			else if (answer == 'n')
+				room = 3;
+			break;
+		case 3:
+			cout << "you're in area 3, the rocky slopes. you can go (e)ast and (s)outh" << endl;
+			cin >> answer;
+			if (answer == 's')
+				room = 2;
+			else if (answer == 'e')
+				room = 4;
+			break;
+
+		case 4:
+			cout << "you're in area 4, the hillside. you can go (w)est and (n)orth." << endl;
+			cin >> answer;
+			if (answer == 'w')
+				room = 3;
+			else if (answer == 'n')
+				room = 5;
+			break;
+
+		case 5:
+			cout << "you're now in area 5, The Crystalized Gym. you can go (s)outh and (n)orth" << endl; //gym 1/4
+			cin >> answer;
+			if (answer == 's')
+				room = 4;
+			else if (answer == 'n')
+				room = 6;
+			break;
+
+		case 6:
+			cout << "you're in area 6, Zubat's Cave. you can go (w)est, (e)ast, and (s)outh" << endl;
+			cin >> answer;
+			if (answer == 'w')
+				room = 7;
+			else if (answer == 'e')
+				room = 8;
+			else if (answer == 's')
+				room = 5;
+			break;
+		case 7:
+			cout << "you're in area 7, The Shallow Cave. you can go (e)ast" << endl;
+			cin >> answer;
+			if (answer == 'e')
+				room = 6;
+			break;
+		case 8:
+			cout << "you're in area 8, Ferrothorn Forest. you can go (e)ast or (w)est" << endl;
+			cin >> answer;
+			if (answer == 'w')
+				room = 6;
+			else if (answer == 'e')
+				room = 9;
+			break;
+
+		case 9:
+			cout << "you're in area 9, Sycther's Stalk. you can go (w)est and (n)orth (s)outh" << endl;
+			cin >> answer;
+			if (answer == 'w')
+				room = 8;
+			else if (answer == 'n')
+				room = 16;
+			else if (answer == 's')
+				room = 10;
+			break;
+
+		case 10:
+			cout << "you're now in area 10, Charizard's Gym. you can go (e)ast and (n)orth" << endl; // gym 2/4
+			cin >> answer;
+			if (answer == 'n')
+				room = 9;
+			else if (answer == 'e')
+				room = 11;
+			break;
+
+		case 11:
+			cout << "you're in area 11, Volcarona Volcano. you can go (w)est or (e)ast" << endl;
+			cin >> answer;
+			if (answer == 'w')
+				room = 10;
+			else if (answer == 'e')
+				room = 12;
+			break;
+		case 12:
+			cout << "you're in area 7, Aegislash Asylum. you can go (e)ast, (w)est, (n)orth" << endl;
+			cin >> answer;
+			if (answer == 'e')
+				room = 11;
+			else if (answer == 'w')
+				room = 18;
+			else if (answer == 'n')
+				room = 13;
+			break;
+		case 13:
+			cout << "you're in area 13, Rhyhorn Ridge. you can go (s)outh or (n)orth" << endl;
+			cin >> answer;
+			if (answer == 's')
+				room = 12;
+			else if (answer == 'n')
+				room = 14;
+			break;
+
+		case 14:
+			cout << "you're in area 14, Lapras Lagoon. you can go (w)est, (s)outh" << endl;
+			cin >> answer;
+			if (answer == 'w')
+				room = 15;
+			else if (answer == 's')
+				room = 12;
+			break;
+
+		case 15:
+			cout << "you're now in area 15, Snorlax's Gym. you can go (e)ast and (n)orth, (w)est" << endl; // gym 3/4
+			cin >> answer;
+			if (answer == 'n')
+				room = 17;
+			else if (answer == 'e')
+				room = 14;
+			else if (answer == 'w')
+				room = 16;
+			break;
+
+		case 16:
+			cout << "you're now in area 16, Mimikyu Manor. you can go (e)ast and (s)outh" << endl; // gym 2/4
+			cin >> answer;
+			if (answer == 's')
+				room = 9;
+			else if (answer == 'e')
+				room = 15;
+			break;
+
+		case 17:
+			cout << "you're in area 17, Pikachu's Palace. you can go (s)outh" << endl;
+			cin >> answer;
+			if (answer == 's')
+				room = 10;
+			break;
+		case 18:
+			cout << "you're in area 7, Aegislash Asylum. you can go (e)ast, (w)est, (n)orth" << endl;
+			cin >> answer;
+			if (answer == 'e')
+				room = 11;
+			else if (answer == 'w')
+				room = 18;
+			else if (answer == 'n')
+				room = 13;
+			break;
+		case 19:
+			cout << "you're in area 13, Rhyhorn Ridge. you can go (s)outh or (n)orth" << endl;
+			cin >> answer;
+			if (answer == 's')
+				room = 12;
+			else if (answer == 'n')
+				room = 14;
+			break;
+
+		case 20:
+			cout << "you're in area 14, Lapras Lagoon. you can go (w)est, (s)outh" << endl;
+			cin >> answer;
+			if (answer == 'w')
+				room = 15;
+			else if (answer == 's')
+				room = 12;
+			break;
+
+		case 15:
+			cout << "you're now in area 15, Snorlax's Gym. you can go (e)ast and (n)orth, (w)est" << endl; // gym 3/4
+			cin >> answer;
+			if (answer == 'n')
+				room = 17;
+			else if (answer == 'e')
+				room = 14;
+			else if (answer == 'w')
+				room = 16;
+			break;
+
+
+
+		}
+	}
+	
+
+}
