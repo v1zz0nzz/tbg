@@ -1,208 +1,398 @@
 #include <iostream>
+#include<Windows.h>
+#pragma comment(lib, "winmm.lib")
 using namespace std;
-
+string items[5];
+int playerhealth = 100;
+int room;
+string answer;
+string pokemon[4];
+char userinput;
+void BattleSystem();
+void ViewPokemon();
+void starterpokemon();
+bool tree = false;
 int main() {
-	
-	int room;
-	char answer;
-	cout << "enter a room number" << endl;
-	cin >> room;
 
-	while (true) {
+	starterpokemon();
 
+	for (int i = 0; i < 4; i++)
+		pokemon[i] = " ";
+
+	while(answer != "q") {
+		
 
 		switch (room) {
+			
 		case 1:
+			
 			cout << "you're in area 1, the grassy fields. you can go (n)orth" << endl;
 			cin >> answer;
-			if (answer == 'n')	
+			if (answer == "north")
 				room = 2;
 			break;
 		case 2:
 			cout << "you're in area 2, the orchard. you can go (n)orth and (s)outh." << endl;
 			cin >> answer;
-			if (answer == 's')
+			if (answer == "south")
 				room = 1;
-			else if (answer == 'n')
+			else if (answer == "north")
 				room = 3;
 			break;
 		case 3:
 			cout << "you're in area 3, the rocky slopes. you can go (e)ast and (s)outh" << endl;
 			cin >> answer;
-			if (answer == 's')
+			if (answer == "south")
 				room = 2;
-			else if (answer == 'e')
+			else if (answer == "east")
 				room = 4;
 			break;
 
 		case 4:
 			cout << "you're in area 4, the hillside. you can go (w)est and (n)orth." << endl;
 			cin >> answer;
-			if (answer == 'w')
+			if (answer == "west")
 				room = 3;
-			else if (answer == 'n')
+			else if (answer == "north")
 				room = 5;
 			break;
 
 		case 5:
 			cout << "you're now in area 5, The Crystalized Gym. you can go (s)outh and (n)orth" << endl; //gym 1/4
 			cin >> answer;
-			if (answer == 's')
+			if (answer == "south")
 				room = 4;
-			else if (answer == 'n')
+			else if (answer == "north")
 				room = 6;
 			break;
 
 		case 6:
 			cout << "you're in area 6, Zubat's Cave. you can go (w)est, (e)ast, and (s)outh" << endl;
 			cin >> answer;
-			if (answer == 'w')
+			if (answer == "west")
 				room = 7;
-			else if (answer == 'e')
+			else if (answer == "east")
 				room = 8;
-			else if (answer == 's')
+			else if (answer == "south")
 				room = 5;
 			break;
 		case 7:
 			cout << "you're in area 7, The Shallow Cave. you can go (e)ast" << endl;
 			cin >> answer;
-			if (answer == 'e')
+			if (answer == "east")
 				room = 6;
 			break;
 		case 8:
 			cout << "you're in area 8, Ferrothorn Forest. you can go (e)ast or (w)est" << endl;
 			cin >> answer;
-			if (answer == 'w')
+			if (answer == "west")
 				room = 6;
-			else if (answer == 'e')
+			else if (answer == "east")
 				room = 9;
 			break;
 
 		case 9:
 			cout << "you're in area 9, Sycther's Stalk. you can go (w)est and (n)orth (s)outh" << endl;
 			cin >> answer;
-			if (answer == 'w')
+			if (answer == "west")
 				room = 8;
-			else if (answer == 'n')
+			else if (answer == "north")
 				room = 16;
-			else if (answer == 's')
+			else if (answer == "south")
 				room = 10;
 			break;
 
 		case 10:
 			cout << "you're now in area 10, Charizard's Gym. you can go (e)ast and (n)orth" << endl; // gym 2/4
 			cin >> answer;
-			if (answer == 'n')
+			if (answer == "north")
 				room = 9;
-			else if (answer == 'e')
+			else if (answer == "east")
 				room = 11;
 			break;
 
 		case 11:
 			cout << "you're in area 11, Volcarona Volcano. you can go (w)est or (e)ast" << endl;
 			cin >> answer;
-			if (answer == 'w')
+			if (answer == "west")
 				room = 10;
-			else if (answer == 'e')
+			else if (answer == "east")
 				room = 12;
 			break;
 		case 12:
 			cout << "you're in area 7, Aegislash Asylum. you can go (e)ast, (w)est, (n)orth" << endl;
 			cin >> answer;
-			if (answer == 'e')
+			if (answer == "east")
 				room = 11;
-			else if (answer == 'w')
+			else if (answer == "west")
 				room = 18;
-			else if (answer == 'n')
+			else if (answer == "north")
 				room = 13;
 			break;
 		case 13:
 			cout << "you're in area 13, Rhyhorn Ridge. you can go (s)outh or (n)orth" << endl;
 			cin >> answer;
-			if (answer == 's')
+			if (answer == "south")
 				room = 12;
-			else if (answer == 'n')
+			else if (answer == "north")
 				room = 14;
 			break;
 
 		case 14:
 			cout << "you're in area 14, Lapras Lagoon. you can go (w)est, (s)outh" << endl;
 			cin >> answer;
-			if (answer == 'w')
+			if (answer == "west")
 				room = 15;
-			else if (answer == 's')
+			else if (answer == "start")
 				room = 12;
 			break;
 
 		case 15:
 			cout << "you're now in area 15, Snorlax's Gym. you can go (e)ast and (n)orth, (w)est" << endl; // gym 3/4
 			cin >> answer;
-			if (answer == 'n')
+			if (answer == "north")
 				room = 17;
-			else if (answer == 'e')
+			else if (answer == "east")
 				room = 14;
-			else if (answer == 'w')
+			else if (answer == "west")
 				room = 16;
 			break;
 
 		case 16:
 			cout << "you're now in area 16, Mimikyu Manor. you can go (e)ast and (s)outh" << endl; // gym 2/4
 			cin >> answer;
-			if (answer == 's')
+			if (answer == "south")
 				room = 9;
-			else if (answer == 'e')
+			else if (answer == "east")
 				room = 15;
 			break;
 
 		case 17:
 			cout << "you're in area 17, Pikachu's Palace. you can go (s)outh" << endl;
 			cin >> answer;
-			if (answer == 's')
+			if (answer == "south")
 				room = 10;
 			break;
 		case 18:
 			cout << "you're in area 7, Aegislash Asylum. you can go (e)ast, (w)est, (n)orth" << endl;
 			cin >> answer;
-			if (answer == 'e')
+			if (answer == "east")
 				room = 11;
-			else if (answer == 'w')
+			else if (answer == "west")
 				room = 18;
-			else if (answer == 'n')
+			else if (answer == "north")
 				room = 13;
 			break;
 		case 19:
 			cout << "you're in area 13, Rhyhorn Ridge. you can go (s)outh or (n)orth" << endl;
 			cin >> answer;
-			if (answer == 's')
+			if (answer == "south")
 				room = 12;
-			else if (answer == 'n')
+			else if (answer == "north")
 				room = 14;
 			break;
 
 		case 20:
 			cout << "you're in area 14, Lapras Lagoon. you can go (w)est, (s)outh" << endl;
 			cin >> answer;
-			if (answer == 'w')
+			if (answer == "west")
 				room = 15;
-			else if (answer == 's')
+			else if (answer == "south")
 				room = 12;
 			break;
 
-		case 15:
-			cout << "you're now in area 15, Snorlax's Gym. you can go (e)ast and (n)orth, (w)est" << endl; // gym 3/4
-			cin >> answer;
-			if (answer == 'n')
-				room = 17;
-			else if (answer == 'e')
-				room = 14;
-			else if (answer == 'w')
-				room = 16;
-			break;
 
 
 
 		}
 	}
+
+
+}
+
+
+
+
+void BattleSystem() {
+	int monsterhealth = 20;
+	int input;
+	int num;
+	cout << endl << endl << endl << "-----------Battle Time-------------" << endl;
+	while (playerhealth > 0 && monsterhealth > 0) {
+		//monster attack
+		if (items[1] == "armor") {
+			num = rand() % 7 + 3;
+			cout << "your armor absorbs the blow and you get hit for " << num << " damage!" << endl;
+			playerhealth -= num;
+		}
+		else {
+			num = rand() % 15 + 12;
+			cout << "the monster bites your arm for " << num << " damage!" << endl;
+			playerhealth -= num;
+		}
+
+
+
+		cout << " press 1 to attack, 2 to drink health potion, 3 to try to escape" << endl;
+		cin >> input;
+		switch (input) {
+		case 1:
+			//player attack
+			if (items[0] == "sword") {
+				num = rand() % 10 + 10;//range 10-20
+				cout << "you slash the monster for " << num << " damage!" << endl;
+				monsterhealth -= num;
+			}
+			else {
+				num = rand() % 5 + 2;//range from 2-7
+				cout << "you hit the monster for " << num << " damage" << endl;
+				monsterhealth -= num;
+
+			}
+			break;
+		case 2: // healthpotion
+			if (items[3] == "potion") {
+
+
+				cout << "glug glug" << endl;
+				playerhealth += 50;
+				items[3] = " ";
+			}
+			else cout << "sorry you have no potions." << endl;
+
+			break;
+
+
+		case 3: // escape
+			num = rand() % 100;
+			if (num > 75) {//25% chance to escape
+				cout << "you succesfully ran away!" << endl;
+				monsterhealth = 0;
+
+			}
+		}
+
+
+
+		cout << "your health:" << playerhealth << endl;
+		cout << "Monster health:" << monsterhealth << endl;
+	}
+	cout << "end of battle----------------------------- " << endl;
+}
+void ViewPokemon() {
+	 {
+		for (int i = 0; i < 3; i++)
+			cout << pokemon[i] << "|";
+		cout << endl << endl;
+		cout << "to exit, press e" << endl;
+		cin >> userinput;
+		if (userinput == 'e') {
+			return;
+		}
+
+	}
+}
+void starterpokemon() {
+
+	srand(time(NULL));
+
+	cout << "<-----------------------------------------WELCOME TO THE POKEMON TEXT BASED GAME!-------------------------------------->" << endl << endl << endl;
+
+	cout << "                                     **#%##****##*************************++++++++++**" << endl;
+	cout << "                                     ***###--+*******************************++++*****" << endl;
+	cout << "                                     ****##-----=+#************************#####******" << endl;
+	cout << "                                     *****#+-------=***********************######+=---" << endl;
+	cout << "                                     *******=---------+********************#*+=-------" << endl;
+	cout << "                                     ********=----------+****************+=-----------" << endl;
+	cout << "                                     ***######+---------------------------------------" << endl;
+	cout << "                                     ##########*=-----------------------------------=*" << endl;
+	cout << "                                     ############*==------------------------------=***" << endl;
+	cout << "                                     %%%%%########-----------------------------=******" << endl;
+	cout << "                                     %%%%%%######=----=+*=-------------+*+------=*****" << endl;
+	cout << "                                     %%%%%%#####+-----*+*#------------++*#=------=****" << endl;
+	cout << "                                     %%%%%%####*=-----=**=------------=*#=--------+**#" << endl;
+	cout << "                                     %%%%%%####+-------------+##------------------=###" << endl;
+	cout << "                                     %%%%######=+***+---------------------=+**+=---*##" << endl;
+	cout << "                                     ######****=+***+=-------=++++=-------++++++---=**" << endl;
+	cout << "                                     **********=--=---------=+====+=-------=++=-----**" << endl;
+	cout << "                                     ******+++*+-------------++===+=----------------+*" << endl;
+	cout << "                                     ***********+--------------==-------------------=*" << endl;
+	cout << "                                     ************+-----------------------------------*" << endl;
+	cout << "                                     *************-----------------------------------+" << endl;
+	cout << "                                      You wake up in the middle of this strange field" << endl << "                                          You don't remember how you got there" << endl << "                                 When you stand up you see weird movements in some bushes" << endl << "                                                Do you wish to investigate ? " << endl;
+
 	
+	while (answer != "yes" || answer != "no") {
+		cout << "Do you wish to investigate? yes or no?" << endl;
+		cin >> answer;
+		break;
+	}
+	if (answer == "yes")
+		cout << "You approach the bushes nervously" << endl;
+	else if (answer == "no")
+		cout << "Curiosity gets the best of you. You investigate anyway." << endl;
+
+	if (tree == false) {
+		cout << "While investigating the bushes. You see three strange creatures named charmander, squirtle, and bulbasaur" << endl;
+		cout << "You'd like to take one of them for your adventure." << endl;
+		cout << "Which one do you wish to take?" << endl; {
+			tree = true;
+		}
+		cin >> answer;
+		if (answer == "bulbasaur") {
+			PlaySound(TEXT("Pokemon.WAV"), NULL, SND_ASYNC);
+			cout << "You chose bulbasaur! He is a grass type pokemon." << endl;
+			pokemon[0] = "bulbasaur";
+			cout << "Your pokemon:";
+			for (int i = 0; i < 3; i++)
+				cout << pokemon[i] << "|";
+			cout << endl << endl;
+			cout << "you can view your pokemon anytime by pressing p, to move on, type next" << endl;
+			cin >> userinput;
+			cout << "test" << endl;
+			if (userinput == 'p') {
+				ViewPokemon();
+			}
+			else if (answer == "next")
+				room = 1;
+		}
+
+		if (answer == "charmander") {
+			PlaySound(TEXT("Pokemon.WAV"), NULL, SND_ASYNC);
+			cout << "You chose charmander! He is a fire type pokemon." << endl;
+			pokemon[0] = "charmander";
+			cout << "Your pokemon:";
+			for (int i = 0; i < 3; i++)
+				cout << pokemon[i] << "|";
+			cout << endl << endl;
+			cout << "you can view your pokemon anytime by pressing p, to move on, type next" << endl;
+			cin >> userinput;
+			cout << "test" << endl;
+			if (userinput == 'p') {
+				ViewPokemon();
+			}
+			else if (answer == "next")
+				room = 1;
+		}
+
+		if (answer == "squirtle") {
+			PlaySound(TEXT("Pokemon.WAV"), NULL, SND_ASYNC);
+			cout << "You chose squirtle! He is a water type pokemon." << endl;
+			pokemon[0] = "squirtle";
+			cout << "Your pokemon:";
+			for (int i = 0; i < 3; i++)
+				cout << pokemon[i] << "|";
+			cout << endl << endl;
+			cout << "you can view your pokemon anytime by pressing p, to move on, type next" << endl;
+			cin >> userinput;
+			cout << "test" << endl;
+			if (userinput == 'p') {
+				ViewPokemon();
+			}
+			else if (answer == "next")
+				room = 1;
+		}
+
+	}
 
 }
